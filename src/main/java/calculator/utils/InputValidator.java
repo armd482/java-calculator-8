@@ -1,5 +1,6 @@
 package calculator.utils;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 
 public class InputValidator {
@@ -9,15 +10,10 @@ public class InputValidator {
 
     private  Boolean isPositiveNumber(String number) {
         try {
-            int intValue = Integer.parseInt(number);
-            return intValue > 0;
+            BigDecimal value = new BigDecimal(number);
+            return value.compareTo(BigDecimal.ZERO) > 0;
         } catch (NumberFormatException e) {
-            try {
-                double doubleValue = Double.parseDouble(number);
-                return doubleValue > 0;
-            } catch (NumberFormatException e2) {
-                return false;
-            }
+            return false;
         }
     }
 
