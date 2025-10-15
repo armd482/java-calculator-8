@@ -1,12 +1,15 @@
 package calculator.controller;
 
 import calculator.view.InputView;
+import calculator.view.OutputView;
 
 public class CalculatorController {
-    InputView inputView = new InputView();
 
     public void run() {
+        InputView inputView = new InputView();
         String numbers = inputView.getNumbers();
-        System.out.println("입력 값:"+numbers);
+
+        OutputView outputView = new OutputView();
+        outputView.displayResult(numbers);
     }
 }
