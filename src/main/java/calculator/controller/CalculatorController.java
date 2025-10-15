@@ -8,11 +8,14 @@ public class CalculatorController {
 
     public void run() {
         InputView inputView = new InputView();
+        OutputView outputView = new OutputView();
+
         String input = inputView.getNumbers();
 
         InputValidator inputValidator = new InputValidator();
 
         if (inputValidator.isEmpty(input)) {
+            outputView.displayInputError("값을 입력해주세요.");
             return;
         }
 
@@ -21,10 +24,11 @@ public class CalculatorController {
         String[] numbers = {"123", "456"};
 
         if(!inputValidator.isPositiveNumbers(numbers)) {
+            outputView.displayInputError("0보다 큰 유효한 숫자들을 입력해주세요");
             return;
         }
 
-        OutputView outputView = new OutputView();
+
         outputView.displayResult(input);
     }
 }
