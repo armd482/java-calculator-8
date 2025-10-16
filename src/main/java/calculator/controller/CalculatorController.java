@@ -1,5 +1,6 @@
 package calculator.controller;
 
+import calculator.model.CalculatorModel;
 import calculator.utils.InputParser;
 import calculator.utils.InputValidator;
 import calculator.view.InputView;
@@ -21,6 +22,10 @@ public class CalculatorController {
             return;
         }
 
-        OutputView.displayResult(input);
+        CalculatorModel Calculator = new CalculatorModel(numbers);
+
+        String result = Calculator.calculateSum();
+
+        OutputView.displayResult(result);
     }
 }
