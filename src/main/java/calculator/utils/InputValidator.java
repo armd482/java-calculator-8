@@ -4,11 +4,11 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 
 public class InputValidator {
-    public Boolean isEmpty(String input) {
-        return input == null || input.isEmpty();
+    public static Boolean isEmpty(String input) {
+        return input == null || input.trim().isEmpty();
     }
 
-    private  Boolean isPositiveNumber(String number) {
+    private static Boolean isPositiveNumber(String number) {
         try {
             BigDecimal value = new BigDecimal(number);
             return value.compareTo(BigDecimal.ZERO) > 0;
@@ -17,7 +17,7 @@ public class InputValidator {
         }
     }
 
-    public Boolean isPositiveNumbers(String[] numbers) {
-        return Arrays.stream(numbers).allMatch(this::isPositiveNumber);
+    public static Boolean isPositiveNumbers(String[] numbers) {
+        return Arrays.stream(numbers).allMatch(InputValidator::isPositiveNumber);
     }
 }
