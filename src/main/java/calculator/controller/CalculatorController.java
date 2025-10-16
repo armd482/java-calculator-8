@@ -15,7 +15,8 @@ public class CalculatorController {
             return;
         }
 
-        String[] numbers = InputParser.splitInput(input);
+        InputParser parser = new InputParser(input);
+        String[] numbers = parser.splitInput();
 
         if(!InputValidator.isPositiveNumbers(numbers)) {
             OutputView.displayInputError("0보다 큰 유효한 숫자들을 입력해주세요.");

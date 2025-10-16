@@ -5,6 +5,6 @@ public class InputView {
 
     public static String getNumbers() {
         System.out.println(NUMBER_INPUT_MESSAGE);
-        return camp.nextstep.edu.missionutils.Console.readLine();
+        return camp.nextstep.edu.missionutils.Console.readLine().trim();
     }
 }
