@@ -11,16 +11,14 @@ public class CalculatorController {
         String input = InputView.getNumbers();
 
         if (InputValidator.isEmpty(input)) {
-            OutputView.displayInputError("값을 입력해주세요.");
-            return;
+            throw new IllegalArgumentException("값을 입력해주세요.");
         }
 
         InputParser parser = new InputParser(input);
         String[] numbers = parser.splitInput();
 
         if(!InputValidator.isPositiveNumbers(numbers)) {
-            OutputView.displayInputError("0보다 큰 유효한 숫자들을 입력해주세요.");
-            return;
+            throw new IllegalArgumentException("0보다 큰 유효한 숫자들을 입력해주세요.");
         }
 
         CalculatorModel calculator = new CalculatorModel(numbers);
