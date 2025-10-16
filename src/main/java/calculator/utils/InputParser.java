@@ -1,6 +1,7 @@
 package calculator.utils;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class InputParser {
     private final String input;
@@ -23,7 +24,7 @@ public class InputParser {
         if(customSeparator != null) {
             separators += customSeparator;
         }
-        return "[" +  separators + "]";
+        return "[" +  Pattern.quote(separators) + "]";
     }
 
     public InputParser(String input) {
