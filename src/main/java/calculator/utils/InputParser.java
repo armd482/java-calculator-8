@@ -7,7 +7,6 @@ public class InputParser {
     private String separator = "[,:]";
 
     private void addSeparatorRegex(String customSeparator) {
-        System.out.println("추가 커스텀 기본자: "+ customSeparator);
         if(separator.contains(customSeparator)) {
             OutputView.displayInputError("커스텀 기본자가 기본 구분자에 포함된 구분자입니다.");
         }
@@ -16,7 +15,7 @@ public class InputParser {
             OutputView.displayInputError("설정할 수 없는 커스텀 기본자입니다.");
         }
 
-        separator = "[,|" + customSeparator + "]";
+        separator = "[,:" + customSeparator + "]";
     }
 
     public InputParser(String input) {

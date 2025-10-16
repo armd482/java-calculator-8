@@ -23,9 +23,9 @@ public class CalculatorController {
             return;
         }
 
-        CalculatorModel Calculator = new CalculatorModel(numbers);
+        CalculatorModel calculator = new CalculatorModel(numbers);
 
-        String result = Calculator.calculateSum();
+        String result = calculator.calculateSum();
 
         OutputView.displayResult(result);
     }
