@@ -1,10 +1,10 @@
 package calculator.utils;
 
-import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.regex.Pattern;
 
 public class InputValidator {
-    private static final String POSITIVE_DECIMAL_PATTERN = "^(?!0+$)(?!0*\\.0+$)\\d*\\.?\\d+$";
+    private static final Pattern POSITIVE_DECIMAL_PATTERN = Pattern.compile("^(?!0+$)(?!0*\\.0+$)\\d*\\.?\\d+$");
 
     public static Boolean isEmpty(String input) {
         return input == null || input.trim().isEmpty();
@@ -14,7 +14,7 @@ public class InputValidator {
         if(number == null) {
             return false;
         }
-        return number.matches(POSITIVE_DECIMAL_PATTERN);
+        return POSITIVE_DECIMAL_PATTERN.matcher(number).matches();
     }
 
     public static Boolean isPositiveNumbers(String[] numbers) {
