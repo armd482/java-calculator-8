@@ -10,15 +10,11 @@ public class CalculatorController {
     public void run() {
         String input = InputView.getNumbers();
 
-        if (InputValidator.isEmpty(input)) {
-            throw new IllegalArgumentException("값을 입력해주세요.");
-        }
-
         InputParser parser = new InputParser(input);
         String[] numbers = parser.splitInput();
 
         if(!InputValidator.isPositiveNumbers(numbers)) {
-            throw new IllegalArgumentException("0보다 큰 유효한 숫자들을 입력해주세요.");
+            throw new IllegalArgumentException("양수만 입력해주세요.");
         }
 
         CalculatorModel calculator = new CalculatorModel(numbers);
