@@ -13,10 +13,6 @@ public class InputParser {
         if(DEFAULT_SEPARATOR.contains(customSeparator)) {
             throw new IllegalArgumentException("커스텀 구분자가 기본 구분자와 중복됩니다.");
         }
-
-        if(customSeparator.matches(".*[0-9.]")) {
-            throw new IllegalArgumentException("설정할 수 없는 커스텀 구분자입니다.");
-        }
     }
 
     private String getSeparatorRegex(String customSeparator) {
